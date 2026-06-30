@@ -102,4 +102,4 @@ The High Risk tier represents 46% of the portfolio by customer count but drives 
 
 ## Author
 
-Aksh Patel — [LinkedIn](#)
+Aksh Patel — [LinkedIn](www.linkedin.com/in/aksh-patel-627007331)
