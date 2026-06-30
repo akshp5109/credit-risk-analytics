@@ -1,6 +1,20 @@
 # Credit Risk Analytics
 
-An end-to-end credit risk analytics pipeline built on the [Home Credit Default Risk](https://www.kaggle.com/c/home-credit-default-risk) dataset (307,511 applicants, 17.3M records across 4 relational tables). The project spans three tools — SQL for data engineering, Excel for financial modelling, and Power BI for an interactive live dashboard — all connected to the same underlying database so every number traces back to one source of truth.
+An end-to-end credit risk analytics pipeline built on the [Home Credit Default Risk](https://www.kaggle.com/c/home-credit-default-risk) dataset (307,511 applicants, 17.3M records across 4 relational tables). The project spans three tools — **SQL** for data engineering, **Excel** for financial modelling, and **Power BI** for an interactive live dashboard — all connected to the same underlying database so every number traces back to one source of truth.
+
+![Power BI Overview](img/dashboard_overview.png)
+
+## Table of Contents
+
+- [Headline Findings](#headline-findings)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Stage 1 — SQL](#stage-1--sql-data-engineering--analysis)
+- [Stage 2 — Excel](#stage-2--excel-financial-modelling)
+- [Stage 3 — Power BI](#stage-3--power-bi-interactive-dashboard)
+- [Key Insight](#key-insight)
+- [Setup](#setup)
+- [Author](#author)
 
 ## Headline Findings
 
@@ -22,13 +36,19 @@ An end-to-end credit risk analytics pipeline built on the [Home Credit Default R
 ## Project Structure
 
 ```
-credit_risk_project/
-├── load_data.py                          # Bulk-loads 4 CSVs into PostgreSQL
-├── credit_risk_sql_walkthrough.sql       # Full SQL pipeline (7 stages)
-├── credit_risk_model.xlsx                # Excel financial models (5 sheets)
-├── credit_risk_BI.pbix                   # Power BI dashboard (4 pages)
-└── Credit_Risk_Final_Report.docx         # Full project documentation
+credit-risk-analytics/
+├── sql/
+│   ├── load_data.py                      # Bulk-loads 4 CSVs into PostgreSQL
+│   └── credit_risk_sql_walkthrough.sql   # Full SQL pipeline (7 stages)
+├── powerbi/
+│   └── credit_risk_BI.pbix               # Power BI dashboard (4 pages)
+├── docs/
+│   └── Credit_Risk_SQL_Report.docx       # Full project documentation
+├── img/                                  # Dashboard screenshots used in this README
+└── README.md
 ```
+
+> **Note on large files:** `credit_risk_model.xlsx` and `risk_summary.csv` exceed GitHub's per-file upload limits, so they're distributed as [Release assets](../../releases) instead of being committed directly. See [Setup](#setup) below.
 
 ## Stage 1 — SQL (Data Engineering & Analysis)
 
@@ -47,12 +67,27 @@ A 5-sheet workbook built on the SQL output:
 
 ## Stage 3 — Power BI (Interactive Dashboard)
 
-A 4-page dashboard connected live to PostgreSQL:
+A 4-page dashboard connected live to PostgreSQL.
 
-1. **Overview** — Portfolio KPIs, default rate by income type, risk tier distribution, default rate by age
-2. **Risk Segmentation** — Decomposition tree drill-down, risk heatmap matrix, slicer-driven filtering
-3. **5C Analysis** — Interactive 5C scorecard with a What-If stress-test slider
-4. **Expected Loss** — Time-series payment trend, EL breakdowns by segment, risk tier, and age
+### Page 1 — Overview
+Portfolio KPIs, default rate by income type, risk tier distribution, default rate by age.
+
+![Overview page](img/dashboard_overview.png)
+
+### Page 2 — Risk Segmentation
+Decomposition tree drill-down, risk heatmap matrix, slicer-driven filtering.
+
+![Risk Segmentation page](img/dashboard_risk_segmentation.png)
+
+### Page 3 — 5C Analysis
+Interactive 5C scorecard with a What-If stress-test slider.
+
+![5C Analysis page](img/dashboard_5c_analysis.png)
+
+### Page 4 — Expected Loss
+Time-series payment trend, EL breakdowns by segment, risk tier, and age.
+
+![Expected Loss page](img/dashboard_expected_loss.png)
 
 ## Key Insight
 
@@ -60,9 +95,11 @@ The High Risk tier represents 46% of the portfolio by customer count but drives 
 
 ## Setup
 
-1. Run `load_data.py` to load the 4 source CSVs into PostgreSQL
-2. Execute `credit_risk_sql_walkthrough.sql` stage by stage in pgAdmin
-3. Open `credit_risk_model.xlsx` and refresh the Raw_Data connection
-4. Open `credit_risk_BI.pbix` and refresh against your local PostgreSQL instance
+1. Run `sql/load_data.py` to load the 4 source CSVs into PostgreSQL.
+2. Execute `sql/credit_risk_sql_walkthrough.sql` stage by stage in pgAdmin.
+3. Download `credit_risk_model.xlsx` from the [Releases](../../releases) page and refresh the Raw_Data connection.
+4. Open `powerbi/credit_risk_BI.pbix` and refresh against your local PostgreSQL instance.
 
-## Author - Aksh Patel
+## Author
+
+Aksh Patel — [LinkedIn](#)
