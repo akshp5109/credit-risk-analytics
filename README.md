@@ -62,8 +62,17 @@ A 5-sheet workbook built on the SQL output:
 
 - **Risk_Scorecard** — 5-factor weighted risk score (0–100) per customer
 - **Expected_Loss** — PD × LGD × EAD model with a 5×5 stress-test sensitivity table
+
+![Expected Loss model](img/excel_expected_loss.png)
+
 - **5C_Scorecard** — Full 5 C's of Credit framework (Character, Capacity, Capital, Collateral, Conditions) with a radar chart and a model accuracy check against actual defaults
+
+![5C Scorecard](img/excel_5c_analysis.png)
+
 - **Cohort_Analysis** — 4 PivotTables cross-validating the SQL findings
+
+![Cohort Analysis 1](img/excel_cohort_1.png)
+![Cohort Analysis 2](img/excel_cohort_2.png)
 
 ## Stage 3 — Power BI (Interactive Dashboard)
 
